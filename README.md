@@ -1,1 +1,1 @@
-CB&Js!
+# sinatra-skeleton

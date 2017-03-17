@@ -1,10 +1,10 @@
-User.destroy_all
-Comment.destroy_all
-Vote.destroy_all
-Question.destroy_all
-Answer.destroy_all
+# User.destroy_all
+# Comment.destroy_all
+# Vote.destroy_all
+# Question.destroy_all
+# Answer.destroy_all
 
-# User.create(user_name:"Joe", email:"joe@gmail.com", password_hash:"123")
+User.create(user_name:"Joe", email:"joe@gmail.com", password_hash:"123")
 #
 # Comment.create(comment_text: "What's up")
 #

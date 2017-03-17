@@ -12,7 +12,7 @@ post '/users' do
 	@user = User.new(params[:user])
 	if @user.save
 		login
-		redirect "/users/#{@user.id}"
+		redirect "/"
 	else
 		erb :'/users/new'
 	end

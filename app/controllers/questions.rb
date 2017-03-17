@@ -42,11 +42,22 @@ end
 
 # display a specific question
 get '/questions/:id' do
+  p "*" * 50
+  p params
+    p "*" * 50
   @question = Question.find(params[:id])
   @answers = @question.answers.all
 
 
   erb :'/questions/show'
+end
+
+post '/questions/:id/vote' do
+  @question = Question.find_by(id: params[:id])
+  p "*" * 30
+  p @question.votes
+  @question.votes.create(value: "updoot", user_id: @question.user_id)
+  redirect "/"
 end
 
 # form for editing a question

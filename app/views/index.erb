@@ -5,15 +5,19 @@
   <p>
   <% @questions.each do |question| %>
 
-  <ul>
-  <form method="post" action='/questions/<%=question.id%>/vote' class="inline">
-        <button type="submit" name="submit_param" value="submit_value" class="upvote-button"></button>
-  <a href ="/questions/<%=question.id%>"><%=question.question_text%></a>
-    <li><%=question.votes.count%></li>
-  </ul>
-  </form>
+    <%=count_votes(question)%>
+    <a href ="/questions/<%=question.id%>"><%=question.question_text%></a>
+
+    <form method="post" action='/questions/<%=question.id%>/vote' class="inline">
+          <button type="submit" name="submit_param" value="submit_value" name="upvote" class="upvote-button"></button>
+    </form>
+
+    <form method="post" action='/questions/<%=question.id%>/downvote' class="inline">
+          <button type="submit" name="submit_param" value="submit_value" name="downvote" class="downvote-button"></button>
+    </form>
   <%end%>
   </p>
+
 <% if current_user%>
   <a href="questions/new">ask a question</a>
   <%else%>

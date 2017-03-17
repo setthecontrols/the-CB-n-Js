@@ -8,7 +8,7 @@ post '/login' do
 		erb :'/sessions/new'
 	elsif @user
 		login
-		redirect "/users/#{@user.id}"
+		redirect "/"
 	end
 end
 

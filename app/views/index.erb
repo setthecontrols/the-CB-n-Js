@@ -1,4 +1,20 @@
 <center>
 <div class="container">
-  <h1>Welcome to a Web Site!!!</h1>
+  <h1>Cat Overflow</h1>
+  </div>
+  <p>
+  <% @questions.each do |question| %>
+
+  <%= question.question_text%>
+
+  <%end%>
+  </p>
+<% if current_user%>
+  <a href="questions/new">ask a question</a>
+  <%else%>
+  <a href="/users/new"> register</a>
+  or
+  <a href="/sessions/login">login</a>
+  to ask a question
+  <%end%>
 </center>

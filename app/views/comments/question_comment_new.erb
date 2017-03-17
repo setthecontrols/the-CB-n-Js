@@ -1,0 +1,5 @@
+<h1>Comment on a question</h1>
+<form action='/questions/<%=@question.id%>/comments' method="POST">
+<input type="textarea" rows="4" cols="50" name="comment[comment_text]">
+<input type="submit" value="Submit Comment">
+</form>

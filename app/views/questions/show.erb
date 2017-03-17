@@ -1,5 +1,10 @@
 <center>
 <h1> <%=@question.question_text%> </h1>
+<% @question.comments.all.each do |comment| %>
+<%= comment.comment_text %>
+<% end %>
+<br><br>
+<a href="/questions/<%=@question.id%>/comments/new">comment on question</a>
 
 <h3>answers:</h3>
 <%@answers.each do |answer|%>
@@ -7,9 +12,10 @@
  <a href="/answers/<%=answer.id%>/comments/new"> Add comment. </a>
 <br>
   <% answer.comments.all.each do |comment|%>
-  <%= comment.comment_text %>
-  <br>
+  <%= comment.comment_text %> <br> commented by: <%=comment.user.user_name%>
+  <br><br>
   <%end%>
+  <br><br>
 <%end%>
 
 

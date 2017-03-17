@@ -38,6 +38,8 @@ post "/questions/:id" do
     end
 end
 
+
+
 # display a specific question
 get '/questions/:id' do
   p "*" * 50
@@ -45,6 +47,8 @@ get '/questions/:id' do
     p "*" * 50
   @question = Question.find(params[:id])
   @answers = @question.answers.all
+
+
   erb :'/questions/show'
 end
 

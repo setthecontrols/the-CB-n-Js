@@ -1,0 +1,7 @@
+<h3>Write a new Question:</h3>
+
+<form id="question" method="post" action="/questions">
+  <input type="text" name="question[question_text]" placeholder="write question here">
+  <input type="hidden" name="question[user_id]" value="<%=@user%>">
+  <input type="submit" value="submit new question">
+</form>

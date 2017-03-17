@@ -1,4 +1,13 @@
 <center>
 <h1> <%=@question.question_text%> </h1>
-</center>
 
+<h3>answers:</h3>
+<%@answers.each do |answer|%>
+<%= answer.answer_text %>
+<br>
+<%end%>
+
+
+
+<a href="/questions/<%=@question.id%>/answers/new">answer the question</a>
+</center>

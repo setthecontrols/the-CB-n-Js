@@ -6,15 +6,16 @@ end
 
 # form page for creating new question
 get '/questions/new' do
+  @user = current_user.id
   erb :'/questions/new'
 end
 
 # create a new question
 post '/questions' do
-  if logged_in
-    @question = Question.new(params[:question_text])
+  if current_user
+    @question = Question.new(params[:question])
     if @question.save
-      redirect "/questions"
+      redirect "/"
     else
       erb :'questions/new'
     end

@@ -1,0 +1,7 @@
+<h1>answer a question </h1>
+
+<form method="post" action="/questions/<%=@question_id%>">
+<input type="textarea" name="answer[answer_text]" placeholder="answer text">
+<input type="hidden" name="answer[user_id]" value="<%=current_user.id%>">
+<input type="submit" value="answer the question">
+</form>

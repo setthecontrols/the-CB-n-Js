@@ -22,9 +22,26 @@ post '/questions' do
   end
 end
 
+get "/questions/:id/answers/new" do
+  @user = current_user
+  @question_id = params[:id]
+  erb :"answers/new"
+end
+
+post "/questions/:id" do
+  @question = Question.find(params[:id])
+  @answer = @question.answers.new(params[:answer])
+    if @answer.save
+      redirect "/questions/#{@question.id}"
+    else
+      erb :"answers/new"
+    end
+end
+
 # display a specific question
 get '/questions/:id' do
   @question = Question.find(params[:id])
+  @answers = @question.answers.all
   erb :'/questions/show'
 end
 

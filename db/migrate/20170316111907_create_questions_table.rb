@@ -4,7 +4,7 @@ class CreateQuestionsTable < ActiveRecord::Migration
       t.text :question_text, null: false
       t.integer :user_id, null: false
 
-      t.timestammps null: false
+      t.timestamps null: false
     end
   end
 end

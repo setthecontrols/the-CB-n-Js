@@ -5,7 +5,7 @@ class CreateVotesTable < ActiveRecord::Migration
       t.integer :user_id, null: false
       t.references :votable, polymorphic: true, index: true
 
-      t.timestampts null: true
+      t.timestamps null: true
     end
   end
 end

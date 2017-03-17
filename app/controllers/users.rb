@@ -20,6 +20,10 @@ end
 
 get '/users/:id' do
 	@user = User.find_by(id: params[:id])
+
+	@questions = Question.where(user_id: @user.id)
+
+	@answers = Answer.where(user_id: @user.id)
 	erb :'/users/show'
 end
 

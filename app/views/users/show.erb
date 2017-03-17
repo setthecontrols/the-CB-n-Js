@@ -1,1 +1,19 @@
-<h1> user profile </h1>
+<h1> Hello, <%=@user.user_name%> </h1>
+
+<h3>Here are your questions</h3>
+<p>
+  <% @questions.each do |question| %>
+  <ul>
+  <a href ="/questions/<%=question.id%>"><%=question.question_text%></a>
+  </ul>
+  <%end%>
+</p>
+
+<h3>Here are your answers</h3>
+<p>
+  <% @answers.each do |answer| %>
+  <ul>
+  <a href ="/questions/<%=answers.id%>"><%=answer.answer_text%></a>
+  </ul>
+  <%end%>
+</p>

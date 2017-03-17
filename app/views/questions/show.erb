@@ -2,6 +2,8 @@
 <h1> <%=@question.question_text%> </h1>
 <% @question.comments.all.each do |comment| %>
 <%= comment.comment_text %>
+<br>
+commented by: <%=comment.user.user_name%>
 <% end %>
 <br><br>
 <a href="/questions/<%=@question.id%>/comments/new">comment on question</a>

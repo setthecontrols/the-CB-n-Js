@@ -48,11 +48,27 @@ get '/questions/:id' do
   erb :'/questions/show'
 end
 
+# upvoting question
 post '/questions/:id/vote' do
-  @question = Question.find_by(id: params[:id])
-  p "*" * 30
-  p @question.votes
-  @question.votes.create(value: "updoot", user_id: @question.user_id)
+  upvote_question
+  redirect "/"
+end
+
+# upvoting answer
+post '/questions/:id/vote' do
+  upvote_answer
+  redirect "/"
+end
+
+# downvoting question
+post '/questions/:id/downvote' do
+  downvote_question
+  redirect "/"
+end
+
+# downvoting answer
+post '/questions/:id/downvote' do
+  downvote_answer
   redirect "/"
 end
 

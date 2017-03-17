@@ -8,7 +8,7 @@ helpers do
     @question = Question.find(params[:id])
     @question.votes.find_or_create_by(value: "updoot", user_id: @question.user_id)
   end
-
+# test
   def downvote_question
     @question = Question.find(params[:id])
     @question.votes.find_or_create_by(value: "downdoot", user_id: @question.user_id)

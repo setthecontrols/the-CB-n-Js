@@ -3,7 +3,7 @@
 
 <h3>answers:</h3>
 <%@answers.each do |answer|%>
-<%= answer.answer_text %>
+ <%= answer.user.user_name %>'s answer:   <%= answer.answer_text %>
 <br>
 <%end%>
 

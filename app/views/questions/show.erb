@@ -4,7 +4,12 @@
 <h3>answers:</h3>
 <%@answers.each do |answer|%>
  <%= answer.user.user_name %>'s answer:   <%= answer.answer_text %>
+ <a href="/answers/<%=answer.id%>/comments/new"> Add comment. </a>
 <br>
+  <% answer.comments.all.each do |comment|%>
+  <%= comment.comment_text %>
+  <br>
+  <%end%>
 <%end%>
 
 

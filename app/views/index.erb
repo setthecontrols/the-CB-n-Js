@@ -5,7 +5,9 @@
   <p>
   <% @questions.each do |question| %>
 
-  <%=question.question_text%>
+  <ul>
+  <a href ="/questions/<%=question.id%>"><%=question.question_text%></a>
+  </ul>
 
   <%end%>
   </p>

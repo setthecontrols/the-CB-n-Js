@@ -6,9 +6,12 @@
   <% @questions.each do |question| %>
 
   <ul>
+  <form method="post" action='/questions/<%=question.id%>/vote' class="inline">
+        <button type="submit" name="submit_param" value="submit_value" class="upvote-button"></button>
   <a href ="/questions/<%=question.id%>"><%=question.question_text%></a>
+    <li><%=question.votes.count%></li>
   </ul>
-
+  </form>
   <%end%>
   </p>
 <% if current_user%>

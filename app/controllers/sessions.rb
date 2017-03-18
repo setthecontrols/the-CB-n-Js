@@ -5,6 +5,7 @@ end
 post '/login' do
 	@user = User.authenticate(params[:user][:email], params[:user][:password])
 	if validation_fail
+		@errors = ["Incorrect email or password"]
 		erb :'/sessions/new'
 	elsif @user
 		login

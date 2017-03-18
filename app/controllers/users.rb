@@ -10,21 +10,27 @@ end
 
 post '/users' do
 	@user = User.new(params[:user])
-	if @user.save
+	p "*"*50
+	p params
+	if params[:user][:password] != "" && @user.save
 		login
 		redirect "/"
 	else
+		p "*8*8*"*40
+		p @errors = @user.errors.full_messages
 		erb :'/users/new'
 	end
 end
 
 get '/users/:id' do
 	@user = User.find_by(id: params[:id])
-
 	@questions = Question.where(user_id: @user.id)
-
 	@answers = Answer.where(user_id: @user.id)
-	erb :'/users/show'
+	if @user.valid
+		erb :'/users/show'
+	else
+		redirect :'/users/login'
+	end
 end
 
 

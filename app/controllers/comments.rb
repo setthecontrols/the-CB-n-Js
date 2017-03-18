@@ -2,7 +2,7 @@ get "/answers/:id/comments/new" do
   @answer = Answer.find_by(id: params[:id])
   erb :"comments/new"
 end
-
+# fff
 get '/questions/:id/comments/new' do
   @question = Question.find_by(id: params[:id])
   erb :'comments/question_comment_new'

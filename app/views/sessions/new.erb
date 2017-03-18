@@ -1,7 +1,13 @@
 
 <div class="user-login">
 <center>
+<% if @errors %>
+  <% @errors.each do |error| %>
+    <%= error %>
+  <% end %>
+<% end %>
 <h1>Web Site login</h1>
+
 <form class="registration" action="/login" method="POST">
   <input type="email" name="user[email]" placeholder="Email"><br>
   <input type="password" name="user[password]" placeholder="Password"><br>

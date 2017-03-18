@@ -10,10 +10,14 @@ end
 
 post '/users' do
 	@user = User.new(params[:user])
-	if @user.save
+	p "*"*50
+	p params
+	if params[:user][:password] != "" && @user.save
 		login
 		redirect "/"
 	else
+		p "*8*8*"*40
+		p @errors = @user.errors.full_messages
 		erb :'/users/new'
 	end
 end

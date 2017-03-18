@@ -1,7 +1,11 @@
 <div class="user-registration">
 <center>
 
-
+<% if @errors && @errors.any?%>
+  <% @errors.each do |error| %>
+    <%= error %><br>
+  <% end %>
+<% end %>
 
 <h1>Web Site's Registration</h1>
 <form class="registration" action="/users" method="POST">
